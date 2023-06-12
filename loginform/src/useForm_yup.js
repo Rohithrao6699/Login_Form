@@ -1,4 +1,3 @@
-
 import { useForm } from 'react-hook-form';
 import 'water.css';
 import './Form.css';
@@ -19,17 +18,22 @@ function Form() {
         <span className="error">{errors.firstname?.message}</span>
 
         <label>Age:</label>
-        <input {...register("age", { required: 'this field is required..', minLength: 1 })}
+        <input {...register("age", { required: 'age is required..', minLength: 1 })}
           type='number' placeholder='Age...' />
         <span className="error">{errors.age?.message}</span>
 
         <label>Email:</label>
-        <input {...register("email", { required: 'this field is required..' })}
+        <input {...register("email", { required: 'email is required..' })}
           type='email' placeholder='Email...' />
         <span className="error">{errors.email?.message}</span>
 
         <label>Create Password:</label>
-        <input {...register("password", { required: 'this field is required..' })}
+        <input {...register("password", { required: 'this field is required..', 
+        minLength: { 
+          value: 6,
+          message: "Password should be atleast 6 characters.. "
+        } 
+      })}
           type='password' placeholder='Password...' />
          <span className="error">{errors.password?.message}</span>
          
